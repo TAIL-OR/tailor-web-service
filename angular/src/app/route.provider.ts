@@ -16,5 +16,14 @@ function configureRoutes(routesService: RoutesService) {
         layout: eLayoutType.application,
       },
     ]);
+    routesService.add([
+      {
+        path: '/help',
+        name: 'Ajuda',
+        iconClass: 'fas fa-question-circle',
+        order: 2,
+        layout: eLayoutType.application,
+      },
+    ]);
   };
 }

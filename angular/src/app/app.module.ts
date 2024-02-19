@@ -17,8 +17,10 @@ import { AbpOAuthModule } from '@abp/ng.oauth';
 import { ThemeLeptonXModule } from '@abp/ng.theme.lepton-x';
 import { SideMenuLayoutModule } from '@abp/ng.theme.lepton-x/layouts';
 import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 @NgModule({
   imports: [
+    LeafletModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

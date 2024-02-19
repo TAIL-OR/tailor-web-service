@@ -1,0 +1,10 @@
+
+<div class="map-container"
+  leaflet
+  [leafletOptions]="options"
+  (leafletMapReady)="onMapReady($event)"
+  (leafletClick)="mapClicked($event)">
+  <div class="button-container">
+  <button class="leaflet-control leaflet-bar contaminations btn btn-primary" data-bs-toggle="button">Contaminações</button>
+  <button class="leaflet-control leaflet-bar btn btn-primary" data-bs-toggle="button">Hospitais</button></div>
+</div>

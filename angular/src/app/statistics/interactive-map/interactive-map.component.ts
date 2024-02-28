@@ -18,12 +18,47 @@ export class InteractiveMapComponent {
   markers: Leaflet.Marker[] = [];
   boundaryPolygon!: Leaflet.Polygon;
 
+  cityPolygons = [];
+  gradientControl;
+
+  showContaminations = true;
+
   heatmapData: [number, number, number][] = [
     [28.625485, 79.821091,.5],
       [28.125293, 79.97926,.9],
       [28.625182, 79.81464,.9],
     // Add more LatLng points with associated values
   ];
+
+  selectContaminations(){
+    if(this.showContaminations){
+      return;
+    }
+    this.showContaminations = true;
+    this.initBoundary();
+
+    this.markers.forEach(
+      (m)=>{
+        this.map.removeLayer(m);
+      }
+    );
+  }
+
+  selectHospitals(){
+    if(!this.showContaminations){
+      return;
+    }
+    this.showContaminations = false;
+
+    this.cityPolygons.forEach(
+      (element)=>{
+        this.map.removeLayer(element);
+      }
+    );
+    this.map.removeControl(this.gradientControl);
+
+    this.initMarkers();
+  }
 
   generateRandomNumber() {
     // Generate a random number between 0 (inclusive) and 1 (exclusive)
@@ -63,32 +98,42 @@ export class InteractiveMapComponent {
     center: { lng: -37.7037601546, lat: -7.3731762414 }
   };
 
-  initHeatmap() {
-    const heat = Heatmap.heatLayer(this.heatmapData).addTo(this.map);
-  }
 
   initMarkers() {
-    // const initialMarkers = [
-    //   {
-    //     position: { lat: 28.625485, lng: 79.821091 },
-    //     draggable: true
-    //   },
-    //   {
-    //     position: { lat: 28.625293, lng: 79.817926 },
-    //     draggable: false
-    //   },
-    //   {
-    //     position: { lat: 28.625182, lng: 79.81464 },
-    //     draggable: true
-    //   }
-    // ];
-    // for (let index = 0; index < initialMarkers.length; index++) {
-    //   const data = initialMarkers[index];
-    //   const marker = this.generateMarker(data, index);
-    //   marker.addTo(this.map).bindPopup(`<b>${data.position.lat},  ${data.position.lng}</b>`);
-    //   this.map.panTo(data.position);
-    //   this.markers.push(marker);
-    // }
+    const initialMarkers = [
+      {
+        position: { lat: -7.0098057424, lng: -38.2050358822 },
+        draggable: true
+      },
+      {
+        position: { lat: -7.0098057424, lng: -38.2050358822 },
+        draggable: true
+      },
+      {
+        position: { lat: -7.0098057424, lng: -38.2050358822 },
+        draggable: true
+      }
+    ];
+    for (let index = 0; index < initialMarkers.length; index++) {
+      const data = initialMarkers[index];
+      const marker = this.generateMarker(data, index);
+      marker.addTo(this.map).bindPopup(`
+
+      <div class="card">
+        <div class="info">
+          <h5 style="color:black">Hospital regional de Brasília</h5>
+          <p>Posição no Ranking: 8</p>
+          <p>Pontuação: 91</p>
+          <p>Leitos ocupados: 10</p>
+          <p>Leitos vagos: 10</p>
+        </div>
+        <button type="button" class="btn btn-primary">Ver detalhes</button>
+      </div>
+
+      `);
+      // this.map.panTo(data.position);
+      this.markers.push(marker);
+    }
   }
 
   generateMarker(data: any, index: number) {
@@ -100,8 +145,7 @@ export class InteractiveMapComponent {
   onMapReady($event: Leaflet.Map) {
     this.map = $event;
     this.initBoundary();
-    this.initMarkers();
-    this.initHeatmap();
+    // this.initMarkers();
   }
 
   mapClicked($event: any) {
@@ -121,9 +165,7 @@ export class InteractiveMapComponent {
 
 // Check if data.features exists and is an array
 
-let boundaryCoordinates: [number, number][] = [
-      
-];
+
 
 if (Array.isArray(data.features)) {
   data.features.forEach(city => {
@@ -141,6 +183,8 @@ if (Array.isArray(data.features)) {
       fillOpacity: 0.5,
       weight: 1
     }).addTo(this.map);
+
+    this.cityPolygons.push(cityPolygon);
 
     cityPolygon.on('click', (event) => {
       const latlng = event.latlng;
@@ -219,8 +263,7 @@ if (Array.isArray(data.features)) {
   }
 });
 // Add the gradient control to the map
-    const gradientControl = new GradientControl({ position: 'bottomleft' });
-    gradientControl.addTo(this.map);
-
+    this.gradientControl = new GradientControl({ position: 'bottomleft' });
+    this.gradientControl.addTo(this.map);
   }
 }

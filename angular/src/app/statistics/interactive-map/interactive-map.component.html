@@ -5,6 +5,6 @@
   (leafletMapReady)="onMapReady($event)"
   (leafletClick)="mapClicked($event)">
   <div class="button-container">
-  <button class="leaflet-control leaflet-bar contaminations btn btn-primary" data-bs-toggle="button">Contaminações</button>
-  <button class="leaflet-control leaflet-bar btn btn-primary" data-bs-toggle="button">Hospitais</button></div>
+  <button class="leaflet-control leaflet-bar contaminations btn" [ngClass]="{'btn-primary':showContaminations,'btn-light':!showContaminations}" (click)="selectContaminations()" data-bs-toggle="button">Contaminações</button>
+  <button class="leaflet-control leaflet-bar btn" [ngClass]="{'btn-primary':!showContaminations,'btn-light':showContaminations}" (click)="selectHospitals()" data-bs-toggle="button">Hospitais</button></div>
 </div>

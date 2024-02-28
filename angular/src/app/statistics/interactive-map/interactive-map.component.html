@@ -15,7 +15,7 @@
       <select class="dateSelect" [(ngModel)]="selectedDate" [ngClass]="{'hidden-items':!showContaminations}" (ngModelChange)="onDateChange()">
         <option *ngFor="let date of dates" [ngValue]="date">{{ date.monthName }} de {{ date.year }}</option>
       </select>
-      <button class="leaflet-control leaflet-bar btn btn-primary" [ngClass]="{'hidden-items':!showContaminations}" data-bs-toggle="button">Visualizar</button>
+      <button class="leaflet-control leaflet-bar btn btn-primary see-det" [ngClass]="{'hidden-items':!showContaminations}" data-bs-toggle="button">Visualizar</button>
     </div>
 </div>
 

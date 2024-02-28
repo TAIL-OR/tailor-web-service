@@ -1,4 +1,6 @@
+import { AuthService } from '@abp/ng.core';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import * as Leaflet from 'leaflet';
 import * as Heatmap from 'leaflet.heat';
 
@@ -33,7 +35,7 @@ export class InteractiveMapComponent {
     // Add more LatLng points with associated values
   ];
 
-  constructor() {
+  constructor(private authService: AuthService, private router: Router) {
     // Generate options for month and year combination
     const currentYear = new Date().getFullYear();
     const yearsRange = 10; // You can adjust this range as per your requirement
@@ -141,6 +143,10 @@ export class InteractiveMapComponent {
     center: { lng: -37.7037601546, lat: -7.3731762414 }
   };
 
+  navigateToStatistics(){
+    console.log('opkok')
+    this.router.navigate(['statistics/hospital'])
+  }
 
   initMarkers() {
     const initialMarkers = [
@@ -160,8 +166,30 @@ export class InteractiveMapComponent {
     for (let index = 0; index < initialMarkers.length; index++) {
       const data = initialMarkers[index];
       const marker = this.generateMarker(data, index);
-      marker.addTo(this.map).bindPopup(`
+      // Create an empty popup
+    const popup = Leaflet.popup();
 
+    // Add the popup to the marker
+    marker.bindPopup(popup);
+
+    // Add the marker to the map
+    marker.addTo(this.map);
+
+    marker.on('popupopen', () => {
+      this.setPopupContent(marker.getPopup());
+    });
+
+    // Set the content of the popup asynchronously
+    // this.setPopupContent(popup, index);
+
+    // Store the marker
+    this.markers.push(marker);
+    }
+  }
+
+  setPopupContent(popup: Leaflet.Popup) {
+    // Set the content of the popup
+    popup.setContent(`
       <div class="card">
         <div class="info">
           <h5 style="color:black">Hospital regional de Brasília</h5>
@@ -172,12 +200,14 @@ export class InteractiveMapComponent {
         </div>
         <button type="button" class="btn btn-primary">Ver detalhes</button>
       </div>
-
-      `);
-      // this.map.panTo(data.position);
-      this.markers.push(marker);
-    }
+    `);
+  
+    // Add event listener to the button inside the popup
+    popup.getElement()?.querySelector('.btn')?.addEventListener('click', () => {
+      this.navigateToStatistics();
+    });
   }
+
 
   generateMarker(data: any, index: number) {
     return Leaflet.marker(data.position, { draggable: data.draggable })

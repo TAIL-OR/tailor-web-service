@@ -13,6 +13,16 @@ const routes: Routes = [
     loadChildren: () => import('./statistics/statistics.module').then(m => m.StatisticsModule),
   },
   {
+    path: 'statistics/hospital',
+    pathMatch: 'full',
+    loadChildren: () => import('./hospital-s/hospital-s.module').then(m => m.HospitalSModule),
+  },
+  {
+    path: 'management',
+    pathMatch: 'full',
+    loadChildren: () => import('./management/management.module').then(m => m.ManagementModule),
+  },
+  {
     path: 'help',
     pathMatch: 'full',
     loadChildren: () => import('./about/about.module').then(m => m.AboutModule),

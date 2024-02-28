@@ -1,0 +1,49 @@
+.title-holder{
+    font-size: 17px;
+    color: black;
+}
+
+.presentation-holder{
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.info-holder{
+    margin: 15px;
+}
+
+.hosp-title{
+    color: black
+}
+
+.hosp-src{
+    border-radius: 20px;
+    width: 380px;
+}
+
+.score-holder{
+    color: black;
+    padding: 10px;
+    margin: 15px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.info-boxes{
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.total{
+    color: white;
+    background-color: rgb(22, 83, 157);
+    width: fit-content;
+    text-align: center;
+    margin:  20px auto;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 12px;
+}

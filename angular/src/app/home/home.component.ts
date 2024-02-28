@@ -21,4 +21,8 @@ export class HomeComponent {
   statisticsPage(){
     this.router.navigate(['statistics']);
   }
+
+  managementPage(){
+    this.router.navigate(['management']);
+  }
 }

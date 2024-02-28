@@ -5,6 +5,19 @@
   (leafletMapReady)="onMapReady($event)"
   (leafletClick)="mapClicked($event)">
   <div class="button-container">
-  <button class="leaflet-control leaflet-bar contaminations btn" [ngClass]="{'btn-primary':showContaminations,'btn-light':!showContaminations}" (click)="selectContaminations()" data-bs-toggle="button">Contaminações</button>
-  <button class="leaflet-control leaflet-bar btn" [ngClass]="{'btn-primary':!showContaminations,'btn-light':showContaminations}" (click)="selectHospitals()" data-bs-toggle="button">Hospitais</button></div>
+  <div style="display:flex">
+    <button class="leaflet-control leaflet-bar contaminations btn" [ngClass]="{'btn-primary':showContaminations,'btn-light':!showContaminations}" (click)="selectContaminations()" data-bs-toggle="button">Contaminações</button>
+  <button class="leaflet-control leaflet-bar btn" [ngClass]="{'btn-primary':!showContaminations,'btn-light':showContaminations}" (click)="selectHospitals()" data-bs-toggle="button">Hospitais</button>
+  </div>
+  <!-- <selevc type="month" id="monthPicker" name="monthPicker" class="leaflet-control leaflet-bar" [ngClass]="{'hideSelection':!showContaminations}" > -->
+
+    <div style="display: flex; align-items: center; ">
+      <select class="dateSelect" [(ngModel)]="selectedDate" [ngClass]="{'hidden-items':!showContaminations}" (ngModelChange)="onDateChange()">
+        <option *ngFor="let date of dates" [ngValue]="date">{{ date.monthName }} de {{ date.year }}</option>
+      </select>
+      <button class="leaflet-control leaflet-bar btn btn-primary" [ngClass]="{'hidden-items':!showContaminations}" data-bs-toggle="button">Visualizar</button>
+    </div>
+</div>
+
+
 </div>

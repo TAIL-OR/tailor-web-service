@@ -21,6 +21,9 @@ export class InteractiveMapComponent {
   cityPolygons = [];
   gradientControl;
 
+  dates: { month: number, monthName: string, year: number }[] = [];
+  selectedDate: { month: number, monthName: string, year: number };
+
   showContaminations = true;
 
   heatmapData: [number, number, number][] = [
@@ -29,6 +32,46 @@ export class InteractiveMapComponent {
       [28.625182, 79.81464,.9],
     // Add more LatLng points with associated values
   ];
+
+  constructor() {
+    // Generate options for month and year combination
+    const currentYear = new Date().getFullYear();
+    const yearsRange = 10; // You can adjust this range as per your requirement
+    const monthsNames = [
+      'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+      'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+    ];
+
+    for (let i = 0; i < yearsRange; i++) {
+      const year = currentYear + i-10;
+      for (let month = 1; month <= 12; month++) {
+        const monthName = monthsNames[month - 1];
+        this.dates.push({ month, monthName, year });
+      }
+    }
+
+    this.dates.reverse()
+
+    // Set default value to current month and year
+    const currentDate = new Date();
+    const defaultMonthYear = this.getMonthYearObject(currentDate.getMonth() + 1, currentDate.getFullYear());
+    this.selectedDate = defaultMonthYear;
+  }
+
+  getMonthYearObject(month: number, year: number): { month: number, monthName: string, year: number } {
+    // Helper function to create month-year object
+    const monthsNames = [
+      'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+      'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+    ];
+    const monthName = monthsNames[month - 1];
+    return { month, monthName, year };
+  }
+
+  onDateChange() {
+    // Handle changes when a month-year combination is selected
+    console.log('Selected month and year:', this.selectedDate);
+  }
 
   selectContaminations(){
     if(this.showContaminations){

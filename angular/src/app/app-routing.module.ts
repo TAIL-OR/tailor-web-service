@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PagerGuard } from './guards/basic-auth.guard';
 
 const routes: Routes = [
   {
@@ -10,17 +11,20 @@ const routes: Routes = [
   {
     path: 'statistics',
     pathMatch: 'full',
-    loadChildren: () => import('./statistics/statistics.module').then(m => m.StatisticsModule),
+    loadChildren: () => import('./statistics/statistics.module').then(m => m.StatisticsModule,),
+    canActivate:[PagerGuard]
   },
   {
     path: 'statistics/hospital',
     pathMatch: 'full',
     loadChildren: () => import('./hospital-s/hospital-s.module').then(m => m.HospitalSModule),
+    canActivate:[PagerGuard]
   },
   {
     path: 'statistics/region',
     pathMatch: 'full',
     loadChildren: () => import('./place-s/place-s.module').then(m => m.PlaceSModule),
+    canActivate:[PagerGuard]
   },
   {
     path: 'management',

@@ -144,8 +144,10 @@ export class InteractiveMapComponent {
   };
 
   navigateToStatistics(){
-    console.log('opkok')
     this.router.navigate(['statistics/hospital'])
+  }
+  navigateToRegion(){
+    this.router.navigate(['statistics/region'])
   }
 
   initMarkers() {
@@ -261,6 +263,8 @@ if (Array.isArray(data.features)) {
 
     cityPolygon.on('click', (event) => {
       const latlng = event.latlng;
+
+      
       Leaflet.popup()
         .setLatLng(latlng)
         .setContent(
@@ -274,7 +278,9 @@ if (Array.isArray(data.features)) {
           '<button type="button" class="btn btn-primary">Ver detalhes</button>'
           
           )
-        .openOn(this.map);
+        .openOn(this.map).getElement()?.querySelector('.btn')?.addEventListener('click', () => {
+          this.navigateToRegion();
+        });;
     });
   });
 } else {

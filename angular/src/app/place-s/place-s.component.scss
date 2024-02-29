@@ -1,0 +1,42 @@
+.title-holder{
+    font-size: 17px;
+    color: black;
+}
+
+.region-title{
+    color: black;
+    padding: 10px;
+}
+
+.score-holder{
+    color: black;
+    padding: 10px;
+    margin: 15px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.info-boxes{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.total{
+    color: white;
+    background-color: rgb(22, 83, 157);
+    width: fit-content;
+    text-align: center;
+    margin:  20px auto;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+.statistics-holder{
+    color: black;
+    padding: 10px;
+    margin: auto 15px;
+    width: 100%;
+    justify-content: space-between;
+}

@@ -18,6 +18,8 @@ import { ThemeLeptonXModule } from '@abp/ng.theme.lepton-x';
 import { SideMenuLayoutModule } from '@abp/ng.theme.lepton-x/layouts';
 import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { NgChartsModule } from 'ng2-charts';
+
 @NgModule({
   imports: [
     LeafletModule,
@@ -41,6 +43,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
               ThemeLeptonXModule.forRoot(),
               SideMenuLayoutModule.forRoot(),
               AccountLayoutModule.forRoot(),
+    NgChartsModule
   ],
   declarations: [AppComponent],
   providers: [APP_ROUTE_PROVIDER],

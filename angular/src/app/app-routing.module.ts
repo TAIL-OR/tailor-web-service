@@ -18,6 +18,11 @@ const routes: Routes = [
     loadChildren: () => import('./hospital-s/hospital-s.module').then(m => m.HospitalSModule),
   },
   {
+    path: 'statistics/region',
+    pathMatch: 'full',
+    loadChildren: () => import('./place-s/place-s.module').then(m => m.PlaceSModule),
+  },
+  {
     path: 'management',
     pathMatch: 'full',
     loadChildren: () => import('./management/management.module').then(m => m.ManagementModule),

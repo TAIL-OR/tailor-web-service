@@ -1,0 +1,41 @@
+.progress-bar-container {
+    width: 530px;
+    margin: 20px auto;
+  }
+  
+  .progress-bar-label {
+    margin-bottom: 5px;
+  }
+  
+  .total-holder{
+    width: 100%;
+    text-align: center;
+  }
+
+  .progress-bar {
+    margin-bottom: 10px;
+  }
+
+  .title-progress{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .perc-small{
+    font-size: 13px;
+    font-weight: lighter;
+  }
+
+  .item-wrapper{
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .item-wrapper h4{
+    margin: 18px;
+  }
+
+  .infos{
+    width: 100%;
+  }

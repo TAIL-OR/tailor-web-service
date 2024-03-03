@@ -24,10 +24,44 @@
 
     <h2>Estatísticas</h2>
 
+    <div class="first-row">
+        <app-progress-bar-chart></app-progress-bar-chart>
+        <div>
+            <h1>Óbitos</h1>
+            <app-time-series-chart></app-time-series-chart>
+        </div>
+    </div>
+    <div class="donut-and">
+        <app-donut-charts></app-donut-charts>
+        <div>
+            <h1>Dose da vacina</h1>
+            <app-time-series-bar-graph></app-time-series-bar-graph>
+        </div>
+    </div>
+    
     <div class="graph">
+        <h1>Taxa de transmissão</h1>
         <app-dummy-graph></app-dummy-graph>
     </div>
 
+    <div class="contaminated-symptoms">
+        <div>
+            <h1>Contaminados</h1>
+            <app-time-series-chart></app-time-series-chart>
+        </div>
+        <div>
+            <h1>Tipos de sintomas</h1>
+            <app-time-series-bar-graph></app-time-series-bar-graph>
+        </div>
+    </div>
+
+
+    <div class="graph">
+        <h1>Ocupação de leitos</h1>
+        <app-dummy-graph></app-dummy-graph>
+    </div>
+
+    
 
 
 </div>

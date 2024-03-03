@@ -40,3 +40,25 @@
     width: 100%;
     justify-content: space-between;
 }
+
+.first-row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.donut-and{
+display: flex;    
+align-items: center;
+justify-content: space-around;
+}
+
+.contaminated-symptoms{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.graph{
+    margin-top: 40px;
+}

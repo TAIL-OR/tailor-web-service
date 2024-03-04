@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-info-box2',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './info-box.component.scss'
 })
 export class InfoBoxComponent2 {
-
+  @Input() info: String;
+  @Input() imageSrc: String;
+  @Input() score: number;
+  @Input() maxScore: number;
 }

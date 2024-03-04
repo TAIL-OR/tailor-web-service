@@ -1,12 +1,12 @@
-<h1 class="title-holder">Início > Estatísticas</h1>
+<h1 class="title-holder">Estatísticas > Hospital Regional de Planaltina</h1>
 
 <div class="presentation-holder">
     <div class="info-holder">
-        <h2 class="hosp-title">Hospital Regional de Brasília</h2>
+        <h2 class="hosp-title">Hospital Regional de Planaltina</h2>
         <h3>Informações gerais</h3>
         <h4>Endereço: Lorem Ipsum</h4>
         <h4>Região Administrativa: Planaltina</h4>
-        <h4>Telefone: ()</h4>
+        <h4>Telefone: (61) xxxx-xxxx</h4>
     </div>
     <div class="image-hosp">
         <img class="hosp-src" src="https://th.bing.com/th/id/OIP.srOi0rWyzaTxy08bryY9qwHaFG?rs=1&pid=ImgDetMain" />
@@ -17,15 +17,39 @@
 
 <div class="score-holder">
 
-    <h1>Pontuação</h1>
+    <h2>Pontuação</h2>
 
     <div class="info-boxes">
-        <app-info-box></app-info-box>
-        <app-info-box></app-info-box>
-        <app-info-box></app-info-box>
-        <app-info-box></app-info-box>
-        <app-info-box></app-info-box>
-        <app-info-box></app-info-box>
+        <app-info-box 
+        imageSrc="https://cdn1.iconfinder.com/data/icons/covid19-line/253/ICU_Line-512.png"
+        info="Disponibilidade de leitos"
+        score=24
+        maxScore=25
+        ></app-info-box>  
+        <app-info-box 
+        imageSrc="https://www.uh.edu/sugarland/_images/icons/icon-crane-line-black.png"
+        info="Infraestrutura"
+        score=24
+        maxScore=25
+        ></app-info-box>
+        <app-info-box 
+        imageSrc="https://cdn-icons-png.flaticon.com/512/442/442242.png"
+        info="Profissionais de saúde"
+        score=24
+        maxScore=25
+        ></app-info-box>
+        <app-info-box 
+        imageSrc="https://cdn-icons-png.flaticon.com/512/448/448472.png"
+        info="Equipamentos"
+        score=24
+        maxScore=25
+        ></app-info-box>
+        <app-info-box 
+        imageSrc="https://www.clickpharma.com.bd/storage/medicine_type/capsule.png"
+        info="Insumos"
+        score=24
+        maxScore=25
+        ></app-info-box>
     </div>
 
     <div class="total">
@@ -37,25 +61,25 @@
 
 <div class="statistics-holder">
 
-    <h1>Estatísticas</h1>
+    <h2>Estatísticas</h2>
 
     <div class="graph">
         <app-horizontal-bar-graph></app-horizontal-bar-graph>
     </div>
 
     <div>
-        <h1>Ocupação de leitos</h1>
+        <h2>Ocupação de leitos</h2>
         <app-dummy-graph2></app-dummy-graph2>
 
     </div>
 
     <div class="two-row">
         <div>
-            <h1>Óbitos</h1>
+            <h2>Óbitos</h2>
             <app-time-series-death-fr></app-time-series-death-fr>
         </div>
         <div>
-            <h1>Tipos de sintomas</h1>
+            <h2>Tipos de sintomas</h2>
             <app-time-series-death></app-time-series-death>
         </div>
     </div>

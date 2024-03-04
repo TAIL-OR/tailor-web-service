@@ -17,7 +17,7 @@
 
 <div class="score-holder">
 
-    <h3>Pontuação</h3>
+    <h1>Pontuação</h1>
 
     <div class="info-boxes">
         <app-info-box></app-info-box>
@@ -37,12 +37,28 @@
 
 <div class="statistics-holder">
 
-    <h3>Estatísticas</h3>
+    <h1>Estatísticas</h1>
 
     <div class="graph">
-        
+        <app-horizontal-bar-graph></app-horizontal-bar-graph>
     </div>
 
+    <div>
+        <h1>Ocupação de leitos</h1>
+        <app-dummy-graph2></app-dummy-graph2>
+
+    </div>
+
+    <div class="two-row">
+        <div>
+            <h1>Óbitos</h1>
+            <app-time-series-death-fr></app-time-series-death-fr>
+        </div>
+        <div>
+            <h1>Tipos de sintomas</h1>
+            <app-time-series-death></app-time-series-death>
+        </div>
+    </div>
 
 
 </div>

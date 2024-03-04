@@ -1,0 +1,38 @@
+<div class="progress-bar-container">
+    <div class="total-holder">
+        <h4>Casos</h4>
+        <h1>{{totalCases}}</h1>
+    </div>
+    <div class="item-wrapper">
+        <h4>{{label1Cases}}</h4>
+        <div class="infos">
+            <div class="title-progress">
+                <div class="progress-bar-label">Ativos</div>
+                <div class="perc-small">{{percentage1}} %</div>
+            </div>
+            <mat-progress-bar class="progress-bar" mode="determinate" [value]="percentage1"></mat-progress-bar>
+        </div>
+    </div>
+    
+    <div class="item-wrapper">
+        <h4>{{label2Cases}}</h4>
+        <div class="infos">
+            <div class="title-progress">
+                <div class="progress-bar-label">Recuperados</div>
+                <div class="perc-small">{{percentage2}} %</div>
+            </div>
+            <mat-progress-bar class="progress-bar" mode="determinate" [value]="percentage2"></mat-progress-bar>
+        </div>
+    </div>
+
+    <div class="item-wrapper">
+        <h4>{{label3Cases}}</h4>
+        <div class="infos">
+            <div class="title-progress">
+                <div class="progress-bar-label">Óbitos</div>
+                <div class="perc-small">{{percentage3}} %</div>
+            </div>
+            <mat-progress-bar class="progress-bar" mode="determinate" [value]="percentage3"></mat-progress-bar>
+        </div>
+    </div>
+  </div>

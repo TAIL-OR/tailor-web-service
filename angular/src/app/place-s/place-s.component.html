@@ -49,37 +49,37 @@
         <app-progress-bar-chart></app-progress-bar-chart>
         <div>
             <h2>Óbitos</h2>
-            <app-time-series-chart></app-time-series-chart>
+            <app-time-series-chart [x_values]="x_values_deaths" [y_values] = "y_values_deaths"></app-time-series-chart>
         </div>
     </div>
     <div class="donut-and">
         <app-donut-charts></app-donut-charts>
         <div>
             <h2>Dose da vacina</h2>
-            <app-time-series-bar-graph></app-time-series-bar-graph>
+            <app-time-series-bar-graph [y_values] = "y_values_vac" [x_values] = "x_values_vac"></app-time-series-bar-graph>
         </div>
     </div>
     
     <div class="graph">
         <h2>Taxa de transmissão</h2>
-        <app-dummy-graph></app-dummy-graph>
+        <app-dummy-graph [x_values]="x_values_transmission" [y_values]="y_values_transmission"></app-dummy-graph>
     </div>
 
     <div class="contaminated-symptoms">
         <div>
             <h2>Contaminados</h2>
-            <app-time-series-chart></app-time-series-chart>
+            <app-time-series-chart [x_values]="x_values_contaminated" [y_values] = "y_values_contaminated"></app-time-series-chart>
         </div>
         <div>
             <h2>Tipos de sintomas</h2>
-            <app-time-series-bar-graph></app-time-series-bar-graph>
+            <app-time-series-bar-graph [y_values] = "y_values_symptoms" [x_values] = "x_values_symptoms"></app-time-series-bar-graph>
         </div>
     </div>
 
 
     <div class="graph">
         <h2>Ocupação de leitos</h2>
-        <app-dummy-graph></app-dummy-graph>
+        <app-dummy-graph [x_values]="x_values_occupation" [y_values]="y_values_occupation"></app-dummy-graph>
     </div>
 
     

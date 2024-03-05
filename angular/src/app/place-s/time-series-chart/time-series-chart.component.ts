@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 
 @Component({
@@ -10,6 +10,9 @@ import { Chart } from 'chart.js';
 export class TimeSeriesChartComponent implements AfterViewInit {
   @ViewChild('myChart') myChart: ElementRef;
 
+  @Input() x_values;
+  @Input() y_values;
+
   constructor() { }
 
   ngAfterViewInit() {
@@ -17,17 +20,13 @@ export class TimeSeriesChartComponent implements AfterViewInit {
     const ctx = canvas.getContext('2d');
 
     const data = [65, 59, 80, 81, 56, 55, 40];
-    const labels = ['01/21', '02/21', '03/21', '04/21', '05/21', '06/21', '07/21'];
+    const labels = this.x_values;
 
     new Chart(ctx, {
       type: 'bar',
       data: {
         labels: labels,
-        datasets: [{
-          label: 'Óbitos',
-          data: data,
-          backgroundColor: 'rgb(22, 83, 157)',
-        }]
+        datasets: this.y_values
       },
       options: {
         responsive: true,

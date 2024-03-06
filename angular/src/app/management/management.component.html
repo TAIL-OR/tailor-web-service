@@ -6,8 +6,67 @@
         <h3>Clique em Gerar Solução</h3>
 </div>
 
-<div class="generate">
-    Gerar solução +
+<div style="display:flex; justify-content: center;">
+
+    <div class="generate">
+        Gerar solução +
+    </div>
+
+    <div class="generate curs" (click)="openOptions()">
+        Configurações avançadas  <mat-icon>settings</mat-icon>  
+    </div>
+</div>
+<!-- 'my_class': step === 'step1'}" -->
+<div class="more_options" [ngClass]="{'hide' : !showOptions,'more_options':showOptions}">
+   <div class="all-options">
+        <div class="button-op" [ngClass]="{'selected' : option === 1}" (click)="selectOption(1)">
+            Geral
+        </div>
+        <div class="button-op" [ngClass]="{'selected' : option === 2}" (click)="selectOption(2)">
+            Funcionários
+        </div>
+        <div class="button-op" [ngClass]="{'selected' : option === 3}" (click)="selectOption(3)">
+            Equipamentos
+        </div>
+        <div class="button-op" [ngClass]="{'selected' : option === 4}" (click)="selectOption(4)">
+            Insumos
+        </div>
+   </div>
+
+   <div class="write-op" [ngClass]="{'hide' : option !== 1}">Demanda por leitos <input type="number"> </div>
+
+    <div class="write-op" [ngClass]="{'hide' : option !== 2}">
+        <div>Médicos por leito <input type="number"></div>
+        <br>
+        <div>Enfermeiros por leito <input type="number"></div>
+        <br>
+        <div>Técnicos de enfermagem por leito <input type="number"></div>
+
+    </div>
+
+    <div class="write-op" [ngClass]="{'hide' : option !== 3}">
+        <div>Oxímetros por leito <input type="number"></div>
+        <br>
+        <div>Eletrocardiogramas por leito <input type="number"></div>
+        <br>
+        <div>Ventiladores por leito <input type="number"></div>
+
+    </div>
+
+    <div class="write-op" [ngClass]="{'hide' : option !== 4}">
+        <div>Doses de Atracúrio por leito <input type="number"></div>
+        <br>
+        <div>Doses de Midazolam por leito <input type="number"></div>
+        <br>
+        <div>Doses de Rocurônio por leito <input type="number"></div>
+
+    </div>
+
+   
+
+    <div class="restore-wrapper">
+        <div class="restore-button" > Restaurar configuração padrão</div>
+    </div>
 </div>
 
 <div class="historic-card">

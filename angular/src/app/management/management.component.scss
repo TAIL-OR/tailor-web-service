@@ -18,11 +18,14 @@
 }
 
 .generate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
     background-color: rgb(22, 83, 157);
     width: fit-content;
     text-align: center;
-    margin:  20px auto;
+    margin:  20px ;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 25px;
@@ -108,4 +111,72 @@
     align-items: center;
     justify-content: center;
     color: white;
+}
+
+.more_options{
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+    height: 450px;
+    background-color:rgb(229, 229, 229);
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+flex-direction: column;
+}
+
+.curs{
+    cursor: pointer;
+}
+
+.hide{
+display: none;    
+}
+
+.all-options{
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-op{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background-color: white;
+    color: rgb(22, 83, 157);
+    width: 125px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.selected{
+    background-color: rgb(22, 83, 157);
+    color: white;
+}
+
+.restore-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background-color: rgb(22, 83, 157);
+    color: white;
+    width: 165px;
+    height: 40px;
+    float: right;
+text-align: center;
+cursor: pointer;
+}
+
+.restore-wrapper{
+    width: 100%;
+    text-align: right;
+}
+
+.write-op{
+    margin-right: 100px;
+    text-align: right;
 }

@@ -20,6 +20,36 @@ export class InteractiveMapComponent {
   markers: Leaflet.Marker[] = [];
   boundaryPolygon!: Leaflet.Polygon;
 
+  hospitals = [
+    {
+      "id":0,
+      "Nome":"Hospital Brasília",
+    "Custo":"R$ 1.000.000,00",
+    "Mínimo de leitos": 10,
+    "Máximo de leitos": 20,
+    "x": -15.84582529,
+    "y": -47.88258939
+    },
+    {
+      "id":1,
+      "Nome":"Hospital de Campanha",
+    "Custo":"R$ 1.000.000,00",
+    "Mínimo de leitos": 10,
+    "Máximo de leitos": 50,
+    "Latitude": -15.82798919,
+    "Longitude": -47.93849482
+    },
+    {
+      "id":2,
+      "Nome":"Hospital Regional de Asa Norte",
+    "Custo":"R$ 2.000.000,00",
+    "Mínimo de leitos": 20,
+    "Máximo de leitos": 30,
+    "Latitude": -15.78477122,
+    "Longitude": -47.88282732
+    }
+  ]
+
   cityPolygons = [];
   gradientControl;
 
@@ -140,7 +170,7 @@ export class InteractiveMapComponent {
       })
     ],
     zoom: 8,
-    center: { lng: -37.7037601546, lat: -7.3731762414 }
+    center: { lat: -15.84582529,lng:  -47.88258939 }
   };
 
   navigateToStatistics(){
@@ -151,20 +181,30 @@ export class InteractiveMapComponent {
   }
 
   initMarkers() {
-    const initialMarkers = [
-      {
-        position: { lat: -7.0098057424, lng: -38.2050358822 },
-        draggable: true
-      },
-      {
-        position: { lat: -7.0098057424, lng: -38.2050358822 },
-        draggable: true
-      },
-      {
-        position: { lat: -7.0098057424, lng: -38.2050358822 },
-        draggable: true
-      }
+    let initialMarkers = [
+      // {
+      //   position: { lat: -7.0098057424, lng: -38.2050358822 },
+      //   draggable: true
+      // },
+      // {
+      //   position: { lat: -7.0098057424, lng: -38.2050358822 },
+      //   draggable: true
+      // },
+      // {
+      //   position: { lat: -7.0098057424, lng: -38.2050358822 },
+      //   draggable: true
+      // }
     ];
+
+    this.hospitals.forEach((hosp)=>{
+      initialMarkers.push(
+        {
+          position: { lat: hosp.x, lng: hosp.y},
+          draggable:true
+        }
+      )
+    });
+
     for (let index = 0; index < initialMarkers.length; index++) {
       const data = initialMarkers[index];
       const marker = this.generateMarker(data, index);

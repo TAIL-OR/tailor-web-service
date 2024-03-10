@@ -18,7 +18,9 @@ Alternativamente, pode-se utilizar o comando: abp install-libs
 Esse comando fará todos downloads necessários de bibliotecas
 
 Utilize o Docker para criar um contâiner com Banco Postgres e uma aplicação Redis.
-Para conectá-las à aplicação, coloque a porta do banco no arquivo appsettings.json na pasta DbMigrator, Host e AuthServer
+Para configurar o Redis no Docker, utilize o comando: docker network create -d bridge redisnet (Caso tenha dúvidas, veja o tutorial em https://collabnix.com/how-to-setup-and-run-redis-in-a-docker-container/)
+Para configurar um banco Postgres no Docker, siga a referência de https://davejansen.com/how-to-set-up-and-use-postgres-using-docker/
+Para conectá-las à aplicação, coloque a porta do Banco de Dados no arquivo appsettings.json na pasta DbMigrator, Host e AuthServer.
 
 Na pasta DbMigrator rode o comando: dotnet run
 Esse comando fará a primeira seed do banco de dados
